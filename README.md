@@ -149,6 +149,8 @@ Great work keeping up so far! In the next step we will create a Lambda function 
 
 5. Choose the role that you created earlier, leave the rest of configurations as default and click **Next**.
 
+![Lambda](Images/lambda.gif)
+
 6. Rename your `index.mjs` file to `index.js`.
 
 ### Code Implementation
