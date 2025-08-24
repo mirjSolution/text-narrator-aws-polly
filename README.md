@@ -181,52 +181,15 @@ We send the text to Polly and ask it to turn it into speech. Polly does its magi
 
 We make a message saying the speech has been saved successfully with its special name in our storage. If something goes wrong, there is an error message.
 
-```javascript
-return {
-    statusCode: 200,
-    body: JSON.stringify({ message: `Audio file stored as ${key}` }),
-};
-} catch (error) {
-    console.error("Error:", error);
-    return {
-        statusCode: 500,
-        body: JSON.stringify({ message: "Internal server error" }),
-    };
-}
-};
-```
+![AWS-SDK4](Images/aws-sdk4.gif)
 
-### Deploy the Function
+### Run and Deploy the Function
 
-Deploy the code changes by clicking on **Deploy**.
+Run, Test and Deploy the code
 
----
+![Run-Test-Deploy](Images/deploy.gif)
 
-## Testing and Output Verification ✅
-
-We have completed with the code configuration of the Lambda function, let's test the function out by creating a test event.
-
-### Step-by-Step Testing
-
-1. Click on **Test** and configure a test event for your Lambda function.
-
-2. Provide a name for your test configuration and in the Event JSON, provide the text you want to be converted to audio in the form:
-
-```json
-{
-  "text": "The text to be converted to Audio"
-}
-```
-
-3. Leave the rest of configurations as default and click **'Save'**.
-
-4. Click on **Test** button again to invoke the test event.
-
-5. Check the **output**.
-
-6. You can access the audio file by checking it in the previously created S3 bucket and downloading it.
-
-🎉 **Congratulations!** You have successfully completed the project of text to speech translation using Amazon Polly, Lambda and S3 bucket.
+🎉 We have successfully completed the project of text to speech translation using Amazon Polly, Lambda and S3 bucket.
 
 ---
 
@@ -239,7 +202,8 @@ In conclusion, this project demonstrates how to seamlessly integrate AWS Lambda 
 ### Final Result ➡️
 
 This is what your project will look like, once built:
-_[Final result referenced but not provided in source]_
+
+![Final-Result](Images/finalResult.png)
 
 ---
 
