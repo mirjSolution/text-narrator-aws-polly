@@ -113,6 +113,8 @@ In this project, we will try to access the Amazon Polly service and store the au
 
 6. Provide a suitable name and description for the IAM role and click on **Create role**.
 
+![Role](Images/role.gif)
+
 ---
 
 ## Creating an S3 Bucket 🪣
