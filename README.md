@@ -159,55 +159,23 @@ Great work keeping up so far! In the next step we will create a Lambda function 
 
 We're using Amazon's tools (AWS SDK) to talk to two services: Polly (for making speech from text) and S3 (for storing files).
 
-![AWS-SDK](Images/aws-sdk1.gif)
+![AWS-SDK1](Images/aws-sdk1.gif)
 
 #### Step 2: Create the Handler Function
 
 We're writing a function that AWS will run for us whenever something happens. It's like a little program that waits for a signal to start working.
 
-```javascript
-exports.handler = async (event) => {
-```
-
 #### Step 3: Configure Speech Parameters
 
 When the function gets a message with some text, we're going to make it into speech. We decide how the speech will sound and what format it should be in.
 
-```javascript
-const text = event.text;
-
-const params = {
-  Text: text,
-  OutputFormat: "mp3",
-  VoiceId: "Joanna", // You can change this to the desired voice
-};
-```
+![AWS-SDK2](Images/aws-sdk2.gif)
 
 #### Step 4: Synthesize and Store Audio
 
 We send the text to Polly and ask it to turn it into speech. Polly does its magic and gives us back the speech as data. We then save this speech in our S3 storage.
 
-```javascript
-// Synthesize speech using Polly
-const command = new SynthesizeSpeechCommand(params);
-const data = await polly.send(command);
-
-// Generate a unique key for the audio file
-const key = `audio-${Date.now()}.mp3`;
-
-// Use Upload to stream the audio file to S3
-const upload = new Upload({
-  client: s3,
-  params: {
-    Bucket: "<YOUR-BUCKET-NAME>", //Replace with your bucket name
-    Key: key,
-    Body: data.AudioStream, // Streamed body
-    ContentType: "audio/mpeg",
-  },
-});
-
-await upload.done(); // Wait for upload to complete
-```
+![AWS-SDK3](Images/aws-sdk3.gif)
 
 #### Step 5: Return Response
 
@@ -225,65 +193,6 @@ return {
         body: JSON.stringify({ message: "Internal server error" }),
     };
 }
-};
-```
-
-### Complete Lambda Function Code 📝
-
-Your complete Lambda function code will look like this:
-
-```javascript
-const {
-  PollyClient,
-  SynthesizeSpeechCommand,
-} = require("@aws-sdk/client-polly");
-const { S3Client } = require("@aws-sdk/client-s3");
-const { Upload } = require("@aws-sdk/lib-storage");
-
-const polly = new PollyClient({});
-const s3 = new S3Client({});
-
-exports.handler = async (event) => {
-  try {
-    const text = event.text;
-
-    const params = {
-      Text: text,
-      OutputFormat: "mp3",
-      VoiceId: "Joanna",
-    };
-
-    // Synthesize speech using Polly
-    const command = new SynthesizeSpeechCommand(params);
-    const data = await polly.send(command);
-
-    // Generate a unique key for the audio file
-    const key = `audio-${Date.now()}.mp3`;
-
-    // Use Upload to stream the audio file to S3
-    const upload = new Upload({
-      client: s3,
-      params: {
-        Bucket: "<YOUR-BUCKET-NAME>", //Replace with your bucket name
-        Key: key,
-        Body: data.AudioStream,
-        ContentType: "audio/mpeg",
-      },
-    });
-
-    await upload.done(); // Wait for upload to complete
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: `Audio file stored as ${key}` }),
-    };
-  } catch (error) {
-    console.error("Error:", error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: "Internal server error" }),
-    };
-  }
 };
 ```
 
