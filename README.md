@@ -321,7 +321,7 @@ We have completed with the code configuration of the Lambda function, let's test
 
 ---
 
-## Conclusion & Clean-up 🧹
+## Conclusion & Result 🧹
 
 ### Project Summary
 
@@ -332,7 +332,9 @@ In conclusion, this project demonstrates how to seamlessly integrate AWS Lambda 
 This is what your project will look like, once built:
 _[Final result referenced but not provided in source]_
 
-### Clean-up Instructions 🗑️
+---
+
+## Clean-up Instructions 🗑️
 
 To avoid unnecessary charges, follow these steps to clean up your AWS resources:
 
