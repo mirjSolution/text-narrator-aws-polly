@@ -191,8 +191,6 @@ Run, Test and Deploy the code
 
 🎉 We have successfully completed the project of text to speech translation using Amazon Polly, Lambda and S3 bucket.
 
----
-
 ## Conclusion & Result 🧹
 
 ### Project Summary
