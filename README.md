@@ -69,6 +69,8 @@ Amazon Polly is a service provided by AWS that enables developers to generate hu
 
 1. Login to your AWS management console and search for **Amazon Polly** on the search bar.
 
+![Polly-1](Images/polly-1.png)
+
 2. Amazon Polly provides different engines according to the requirements for the sounding of the audio and the content length:
 
    - **Neural Engine**: Used for lifelike and expressive speech or for natural-sounding interactions
@@ -76,6 +78,8 @@ Amazon Polly is a service provided by AWS that enables developers to generate hu
    - **Long Form Engine**: Optimized for longer texts like articles or books that provides good quality throughout the content
 
 3. Amazon Polly also provides different **languages** to translate and different voice tones. So you can use a voice tone according to the need in your application.
+
+![Polly-2](Images/polly-2.png)
 
 4. Choose the language and voice model, type the content you want to be translated in the audio form in the input text box.
 
