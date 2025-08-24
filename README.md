@@ -159,17 +159,7 @@ Great work keeping up so far! In the next step we will create a Lambda function 
 
 We're using Amazon's tools (AWS SDK) to talk to two services: Polly (for making speech from text) and S3 (for storing files).
 
-```javascript
-const {
-  PollyClient,
-  SynthesizeSpeechCommand,
-} = require("@aws-sdk/client-polly");
-const { S3Client } = require("@aws-sdk/client-s3");
-const { Upload } = require("@aws-sdk/lib-storage");
-
-const polly = new PollyClient({});
-const s3 = new S3Client({});
-```
+![AWS-SDK](Images/aws-sdk1.gif)
 
 #### Step 2: Create the Handler Function
 
